@@ -1,4 +1,5 @@
-\item\problemnumber{GT C}{11}{3}{-}{.}
+\gdef\problemNumber{GT C - 11.3}
+\def\problemText{
 There is a sorting algorithm, ``Stooge-sort,'' which is named after the comedy
 team, ``The Three Stooges.'' If the input size, $n$, is $1$ or $2$, then the
 algorithm sorts the input immediately. Otherwise, it recursively sorts the first
@@ -33,10 +34,32 @@ determine an asymptotic bound for $T(n)$.\\[12pt]
         \EndProcedure
     \end{algorithmic}
 \end{algorithm}
-\ifanswers
+}
+\def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+a. Show that Stooge-sort is correct \\[6pt]
+If $n < 2$, then do nothing. That is , if there is only one item or no item the list/array is sorted.\\[6pt]
+Base Case: $n = 2$: \\ it compares and swap elements if needed. \\[6pt]
+Thefore, the subarray is sorted. \\[6pt]
+Inductive Hypothesis: \\Assume that for all $k < n$, this algorithm holds true.  \\[6pt]
+For $n > 2:$  \\[6pt]
+Let's divide the array into 3 sections: A, B and C. \\[6pt]
+i. First Recursive Call: StoogeSort(A[1...m])\\
+A and B are sorted [Structural Induction]\\
+We can say that everything in B is larger than in A. \\[6pt]
+ii. Second Recursive Call: StoogeSort(A[n-m+1...n])\\
+This makes sure that largest elements are moved to C section. \\
+Everythign in C is larger than everything in A and B \\
+There could have been small elements in part C that needed to over A and B and not there yet.\\[6pt]
+iii. Third Recursive Call: StoogeSort(A[1...m])\\
+This sort the elements in A and B again. The A and B contains smallest m elements, sorting this puts elements in correct position \\
+Since the second recursive call makes sure that C has the largest elements and are sorted correctly.\\
+Then final recursive call makes sure that the elements in A and B are sorted. We can say that Stooge-sort is correct. \\
+\\[6pt]b. Determine an asymptotic bount for T(n)\\[6pt]
+$T(n) = 3T(\frac{2}{3}n) + 0$ \\[6pt]
+So, $a = 3, b = \frac{3}{2}, F(n) = 0, lg_ba \approx 2.71$ \\[6pt]
+As per M.T Case 1, $F(n) = 0$ is smaller than $O(n^{2.71})$  \\[6pt]
+Therefore, $T(n) = O(n^{2.71})$ \\[6pt]
 }
-\newpage
-\fi
+}

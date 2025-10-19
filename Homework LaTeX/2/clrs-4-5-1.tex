@@ -12,7 +12,26 @@ recurrences.
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\
-Answer goes here
+\\[6pt]a. $T(n)=2T\left(n/4\right)+1$ \\[6pt]
+Here: a = 2, b = 4, f(n) = 1 \\[6pt]
+So $lg_ba = lg_42 = \frac{1}{2}$ \\[6pt]
+Therefore, Case 1 says: $ f(n) = 1 $ is samller than $n^\frac{1}{2}$ \\[6pt]
+$T(n) = \Theta(n^\frac{1}{2})$\\[12pt]
+\\[6pt]b. $T(n)=2T\left(n/4\right)+\sqrt{n}$\\[6pt]
+Here $a = 2, b = 4, f(n) = \sqrt{n}$ \\[6pt]
+So $lg_ba = lg_42 = \frac{1}{2}$ \\[6pt]
+Therefore, Case 2 says: $ f(n) = \sqrt{n} $ is similar to $n^\frac{1}{2}$ \\[6pt]
+$T(n) = \Theta(\sqrt{n}.lgn)$\\[12pt]
+\\[6pt]c. $T(n)=2T\left(n/4\right)+n$\\[6pt]
+Here $a = 2, b = 4, f(n) = n$ \\[6pt]
+So $lg_ba = lg_42 = \frac{1}{2}$ \\[6pt]
+Therefore, Case 3 says: $ f(n) = n $ is larger than $n^\frac{1}{2}$ \\[6pt]
+$T(n) = \Theta(n)$\\[12pt]
+\\[6pt]d. $T(n)=2T\left(n/4\right)+n^2$\\[6pt]
+Here $a = 2, b = 4, f(n) = n^2$ \\[6pt]
+So $lg_ba = lg_42 = \frac{1}{2}$ \\[6pt]
+Therefore, Case 3 says: $ f(n) = n^2 $ is larger than $n^\frac{1}{2}$ \\[6pt]
+$T(n) = \Theta(n^2)$\\[12pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

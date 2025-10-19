@@ -1,4 +1,5 @@
-\item\problemnumber{GT A}{11}{6}{-}{.}
+\gdef\problemNumber{GT A - 11.6}
+\def\problemText{
 Suppose you have a geometric description of the buildings of Manhattan and you
 would like to build a representation of the New York skyline. That is, suppose
 you are given a description of a set of rectangles, all of which have one of
@@ -14,10 +15,43 @@ subinterval $[x_i,x_{i+1}]$ is the maximal subinterval that has a single highest
 interval, which is at height $c_i$, in $S$, containing $[x_i,x_{i+1}]$, for
 $i=0,1,\ldots,m$. Design a $\Theta(n\log n)$-time algorithm for computing the
 skyline of $S$.\\[12pt]
-\ifanswers
-\textcolor{blue}{
-\textbf{Answer:}\\[6pt]
-Answer goes here
 }
-\newpage
-\fi
+\def\problemSolution{
+\textcolor{blue}{
+\begin{algorithm}[H]
+\caption{Compute the Skyline of $S$}
+\begin{algorithmic}[1]
+\State \textbf{Input:} A set $S = \{[a_1,b_1,h_1], [a_2,b_2,h_2], \dots, [a_n,b_n,h_n]\}$ of rectangles, 
+where $[a_i,b_i]$ is the horizontal interval and $h_i$ is the height.
+\State \textbf{Output:} The skyline list of key points $\textit{answer} = [(x_0, c_0), (x_1, c_1), \dots, (x_m, c_m), (x_{m+1}, 0)]$
+\State edges $\gets [\,]$
+\For{each rectangle $i$ in $S$}
+    \State append $(a_i, i)$ to edges
+    \State append $(b_i, i)$ to edges
+\EndFor
+\State sort edges by non-decreasing $x$-coordinate
+\State live $\gets [\,]$ \Comment{Priority queue of active rectangles storing $(-h_i, b_i)$}
+\State answer $\gets [\,]$
+\State idx $\gets 0$
+\While{idx $<$ len(edges)}
+    \State curr\_x $\gets$ edges[idx][0]
+    \While{idx $<$ len(edges)$\ \textbf{and}\ $edges[idx][0] = curr\_x}
+        \State $b \gets$ edges[idx][1]
+        \If{$a_b = curr\_x$}
+            \State push $(-h_b, b_b)$ into live
+        \EndIf
+        \While{live not empty $\ \textbf{and}\ $live[0][1] $\leq$ curr\_x}
+            \State pop from live
+        \EndWhile
+        \State idx $\gets$ idx $+ 1$
+    \EndWhile
+    \State max\_height $\gets -$live[0][0] if live not empty else 0
+    \If{answer is empty $\ \textbf{or}\ $max\_height $\neq$ answer[-1][1]}
+        \State append $(curr\_x, max\_height)$ to answer
+    \EndIf
+\EndWhile
+\State \Return answer
+\end{algorithmic}
+\end{algorithm}
+}
+}

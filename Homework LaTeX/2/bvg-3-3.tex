@@ -7,7 +7,30 @@ n(n+3)$ for a 2-tree with $n$ internal nodes.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+m = external nodes\\[6pt]
+n = internal nodes\\[6pt]
+So in 2-tree: m = n + 1\\[6pt]
+$m = m_1 + m_2$ : 2-tree T has two subtrees $T_1$ and $T_2.$\\[6pt]
+$T_1$ has $m_1$ external node and $T_2$ has $m_2$ external node. \\[6pt]
+$epl\le \frac{1}{2}(m^2+m-2)$\\[6pt]
+$epl_1\le \frac{1}{2}(m_1^2+m_1-2)$\\[6pt]
+$epl_2\le \frac{1}{2}(m_2^2+m_2-2)$\\[6pt]
+$epl_1 + epl_2 + m_1 + m_2 = epl \le \frac{1}{2}((m_1+m_2)^2 + (m_1+m_2) - 2)$\\[6pt]
+$epl \le \frac{1}{2}(m_1^2 + m_1 - 2) + \frac{1}{2}(m_2^2 + m_2 - 2) + m_1 + m_2 \le \frac{1}{2}((m_1+m_2)^2 + (m_1+m_2) - 2)$\\[6pt]
+$epl \le \frac{1}{2}(m_1^2 + m_1) + \frac{1}{2}(m_1 + m_2 ) - \frac{2}{2} - \frac{2}{2} + m_1 + m_2 \le \frac{1}{2}(m_1^2 + m_2^2) + m_1m_2 + \frac{1}{2}(m_1+m_2) - 1$\\[6pt]
+$epl \le \frac{1}{2}(m_1^2 + m_2^2) + \frac{3}{2}(m_1 + m_2 ) - 2 \le \frac{1}{2}(m_1^2 + m_2^2) + m_1m_2 + \frac{1}{2}(m_1+m_2) - 1$\\[6pt]
+$epl \le \frac{3}{2}(m_1 + m_2 ) - 2 \le m_1m_2 + \frac{1}{2}(m_1+m_2) - 1$\\[6pt]
+$epl \le \frac{3}{2}(m_1 + m_2 ) - \frac{1}{2}(m_1+m_2) - 2 \le m_1m_2  - 1$\\[6pt]
+$epl \le m_1 + m_2 - 2 \le m_1m_2  - 1$\\[6pt]
+$epl \le 0 \le m_1m_2 - m_1 - m_2 - 1$\\[6pt]
+$epl \le 0 \le (m_1 - 1) (m_2 - 1)$\\[6pt]
+\\[6pt]To show: $epl\le\frac{1}{2}n(n+3)$\\[6pt]
+Substitute: m = n + 1\\[6pt]
+$epl\le \frac{1}{2}((n + 1)^2 + n + 1-2)$\\[6pt]
+$epl\le \frac{1}{2}(n^2 + 2n + 1 + n + 1 - 2)$\\[6pt]
+$epl\le \frac{1}{2}(n^2 + 3n)$\\[6pt]
+$epl\le \frac{1}{2}n(n + 3)$\\[6pt]
 }
+
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

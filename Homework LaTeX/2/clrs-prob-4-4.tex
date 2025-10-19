@@ -30,7 +30,49 @@ where $F_i$ is the $i^{\text{th}}$ Fibonacci number.
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\
-Answer goes here
-}
+a. We know that $F_0 = 0$ and $F_1 = 1$ 
+\begin{align*}
+\mathscr{F}(z)&=\sum_{i=0}^\infty F_iz^i = F_0z^0 + F_1z^1 + \sum_{i=2}^\infty F_iz^i\\
+\mathscr{F}(z)&=0 + z + \sum_{i=2}^\infty F_iz^i = z + \sum_{i=2}^\infty F_iz^i\\
+We know: F_i = F_{i-1} + F_{i-2}\\
+\mathscr{F}(z)&=z + \sum_{i=2}^\infty (F_{i-1}+F_{i-2})z^i\\
+\mathscr{F}(z)&=z + \sum_{i=2}^\infty F_{i-1}z^i + \sum_{i=2}^\infty F_{i-2}z^i\\[6pt]
+Let : k = i -1: \mathscr{F}(z)&=\sum_{i=2}^\infty F_{i-1}z^i = z\sum_{k=1}^\infty F_kz^k \\
+F_0z^0 = 0, start: k = 0 : \mathscr{F}(z)&= z\sum_{k=0}^\infty F_kz^k  = z{F}{(z)}\\
+Let:  k = i - 2, start : k= 0: \mathscr{F}(z)&=\sum_{k=0}^\infty F_{k}z^{k+2} = z^2\sum_{k=0}^\infty F_kz^k \\
+\mathscr{F}(z)&= z^2{F}{(z)}\\
+Combine: \mathscr{F}(z)&= z + z{F}{(z)} + z^2{F}{(z)}\\
+\end{align*}\\[6pt]
+b. To show:
+\begin{align*}
+\mathscr{F}(z)&=\frac{z}{1-z-z^2}\\\\[12pt]
+Given: \mathscr{F}(z)&= z + z{F}{(z)} + z^2{F}{(z)}\\[6pt]
+\mathscr{F}(z)& - z{F}{(z)} - z^2{F}{(z)} = z \\\\[6pt]
+\mathscr{F}(z)&(1 - z - z^2) = z \\\\[6pt]
+\mathscr{F}(z)& = \frac{z}{(1 - z - z^2)} \\\\[12pt]
+\mathscr{F}(z)& = \frac{z}{\left(1-\phi z\right)\left(1-\hat\phi z\right)}\\[6pt]
+\mathscr{F}(z)& = \frac{z}{\left(1-\phi z\right)\left(1-\hat\phi z\right)} = \frac{a}{\left(1-\phi z\right)} +  \frac{b}{\left(1-\hat\phi z\right)}\\[6pt]
+a = 1/\sqrt{5},  b = -1/\sqrt{5}\\
+\mathscr{F}(z)& = \frac{1}{\sqrt{5}}\left(\frac{1}{\left(1-\phi z\right)} - \frac{1}{\left(1-\hat\phi z\right)}\right)\\[6pt]
+\end{align*}
+c. We have:\\
+\begin{align*}
+\mathscr{F}(z)& = \frac{1}{\sqrt{5}}\left(\frac{1}{\left(1-\phi z\right)} - \frac{1}{\left(1-\hat\phi z\right)}\right)\\[6pt]
+\end{align*}
+Use geometric series to both fractions: 
+\begin{align*}
+i-> \frac{1}{1-\phi z}& = \sum_{i=0}^\infty (\phi z)^i =  \sum_{i=0}^\infty \phi^i z^i\\[6pt]
+ii-> \frac{1}{1-\hat\phi z}& = \sum_{i=0}^\infty (\hat\phi z)^i =  \sum_{i=0}^\infty \hat\phi^i z^i\\[6pt]
+Substitute: i, and , ii: 
+\mathscr{F}(z)& = \frac{1}{\sqrt{5}}\left(\sum_{i=0}^\infty \phi^i z^i- \sum_{i=0}^\infty \hat\phi^i z^i\right)\\[6pt]
+\mathscr{F}(z)& = \sum_{i=0}^\infty \frac{1}{\sqrt{5}}(\phi^i - \hat\phi^i) z^i\\[6pt]
+\end{align*}
+d. \\
+From c, we can get that the coefficient of $z^i$ that is $F_i = \frac{\phi^i - \hat\phi^i}{\sqrt{5}}$\\[6pt]
+Hint: $\left^^7c\hat\phi\right^^7c<1$, $\hat\phi$ approaches 0 as i increases.\\[6pt]
+Therefore for $ i \ge 0$, $F_i$ is extremely close to the value of first term:$ F_i \approx \frac{\phi^i}{\sqrt{5}}$\\[6pt]
+Since the second term: $\frac{-\hat \phi^i}{\sqrt{5}}$ is a very small number. \\[6pt]
+$ F_i = \frac{\phi^i}{\sqrt{5}}$} \\[6pt]
+\\[6pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

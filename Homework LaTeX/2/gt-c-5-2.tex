@@ -9,7 +9,15 @@ of inversions in the array $A$.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+The outer for loop runs: n - 1 times (from $i <- 1$ to $n - 1$). \\[6pt]
+So we can say that total outer loop's work: O(n)\\[6pt]
+The inner while loop runs i times. On worst case we do i shifts. \\[6pt]
+Each shift we do, it takes care of one inversion. Therefore, we can say that total shifts = total Inversions = I \\[6pt]
+One shift takes O(1) time. \\[6pt]
+Since shift = Inversion = I, then we can say that total times =  O(I) for I inversions. \\[6pt]
+We can combine the work: \\[6pt]
+T(n) = O(n) + O(I)\\[6pt]
+T(n) = O(n + I)\\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 2, CS 6, 5870-1}

@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{mathrsfs}
+
+
+\title{Homework 2}
+
+\newcounter{problemctr}
+\newcounter{myenumi}
+
+\newcommand{\printProblem}{%
+  \refstepcounter{problemctr}%
+  \section*{\theproblemctr\ [\problemNumber]}%
+  \problemText
+  \problemSolution
+  \textbf{Outcomes:} \problemOutcomes
+  \newpage
+}
+
+\begin{document}
+\maketitle
+
+% Include each problem file and then display its content
+\input{bvg-3-1.tex}
+\printProblem
+
+\input{bvg-3-3.tex}
+\printProblem
+
+\input{sw-2-1-8.tex}
+\printProblem
+
+\input{clrs-4-5-1.tex}
+\printProblem
+
+\input{clrs-prob-4-3.tex}
+\printProblem
+
+\input{gt-c-5-2.tex}
+\printProblem
+
+\input{bvg-3-josephus.tex}
+\printProblem
+
+\input{clrs-prob-4-4.tex}
+\printProblem
+
+\input{gt-a-11-6.tex}
+\printProblem
+
+\input{gt-c-11-3.tex}
+\printProblem
+
+\end{document}

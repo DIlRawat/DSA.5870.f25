@@ -5,7 +5,19 @@ Show that every 2-tree with $n$ internal nodes has $n+1$ external nodes.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+Here $f(n)$ be the number of external nodes in 2-tree with n internal nodes.\\[6pt]
+Let's start with Base case n = 0:
+$f(n) = n + 1 = 0 + 1 = 1$. \\[6pt]
+2-tree with 0 internal node means it only has root node, which is an external node too. Therefore,
+base case is true. \\[6pt]
+Inductive Hypothesis: Now let's assume it holds true for k such taht : $0 \le k < n $\\[6pt]
+$f(k) = k + 1$ \\[6pt]
+Suppose we have a 2-tree with $n \ge 1$ internal nodes. So the root node will have two children, i.e left subtree and right sub tree. \\[6pt]
+left subtree = $T_L$ and right subtree = $T_R$  \\[6pt]
+If k = internal nodes in $T_L$, then $n-k-1$ = internal nodes in $T_R$ \\[6pt]
+So: $f(n) = f(k) + f(n-k-1)$\\[6pt]
+$f(n) = k + 1 + n - k - 1 + 1$\\[6pt]
+$f(n) = n + 1$ \\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

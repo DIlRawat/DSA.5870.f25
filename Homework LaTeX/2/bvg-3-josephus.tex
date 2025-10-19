@@ -41,7 +41,25 @@ set of $n$ items (thus, $J(10)=5$).
 \def\problemSolution {
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+a. We are left with odd numners. J(2n) = 2J(n) - 1 \\[6pt]
+b. We are left with even numbers.  J(2n+1) = 2J(n) + 1 \\[6pt]
+c. Combining a and b: \\[6pt]
+\[
+J(n) = \begin{cases}
+J(1) = 1 & \text{base case } \\[6pt]
+2J(\frac{n}{2}) - 1 & \text{if } n \text{ is even} \\[6pt]
+2J(\lfloor \frac{n}{2} \rfloor) + 1 & \text{if } n \text{ is odd and $n > 1$}
+\end{cases}
+\]\\[6pt]
+d. We found from the table that if n is power of 2 then our J(n) is always 1. \\[6pt]
+We will use hint for other number. \\\emph{Hint}: Express $n$ as $n=2^m+l$, where $2^m\le n<2^{m+1}$.\\[6pt]
+$l = n - 2^m$ \\[6pt]
+Our closed form: $J(n) = 2l + 1$ where $n = 2^m + l$ and $0 \le l < 2^m$\\[12pt]
+e. To show closed form solution is correct: \\[6pt]
+Base Case: m = 0\\
+Then, $2^0 = 1$\\
+So l = 0\\
+Inductive Hypothesis:\\
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1, 5870-2}
