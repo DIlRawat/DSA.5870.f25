@@ -7,7 +7,21 @@ $2^k\le n<2^{k+1}$.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+We are given: $2^k\le n<2^{k+1}$
+\\[12pt] $lg 2^k\le lg n<lg 2^{k+1}$
+\\[12pt] $k\le lg n<k+1$
+\\[12pt] We can get floor of $lgn$ from here:
+\\[12pt] $\lfloor\lg n\rfloor=k$
+\\[12pt] Now we need to show: $\lceil\lg(n+1)\rceil= k + 1$
+\\[12pt] Shifting Inequalities for: $n < 2^{k+1}$
+\\[12pt] we have: $n+1\le 2^{k+1}$
+\\[12pt] Log on both sides: $lg(n + 1)\le k+1$
+\\[12pt] Combined: $k < lg(n+1)\le k + 1$
+\\[12pt] then, $\lceil\lg(n+1)\rceil = k + 1$
+\\[12pt] Finally, $\lceil\lg(n+1)\rceil = k + 1 = \lfloor\lg n\rfloor + 1$
+\\[12pt]
 }
+
 }
 \gdef\problemOutcomes{CS 6, 5870-1}
+

@@ -6,7 +6,22 @@ Show how to sort a list of five elements using no more than seven comparisons.
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\
-Answer goes here
+Let's say our 5 items are: n1, n2, n3, n4, n5: \\[6pt]
+We will divide the first four items into two pairs. Then sort each pair.\\[6pt]
+Sort n1 and n2. 1 comparison\\[6pt]
+Sort n3 and n4. 1 comparison\\[6pt]
+So far we have: $n1 < n2$ and $n3 < n4$ \\[6pt]
+\\[6pt]
+Now we compare with large items in each pair. n2 and n4. 1 comparison \\[6pt]
+If $n2 < n4$: our order: n1, n2, n3, n4 \\[6pt]
+    --- We know that: $n1 < n2 < n4$. \\[6pt]
+    --- Insert n5. upto 2 comparison\\[6pt]
+    --- Then insert n3. upto 2 comparison \\[6pt]
+Else: we swap the pairs: n3, n4, n1, n2 \\[6pt]
+    --- we know : $n3 < n4 < n2$ \\[6pt]
+    --- Insert n5. upto 2 comparison \\[6pt]
+    --- Then insert n1. upto 2 comparison \\[6pt]
+Result: Sorted sequence: n1, n2, n3, n4, n5\\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

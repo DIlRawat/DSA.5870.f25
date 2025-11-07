@@ -5,13 +5,30 @@ there is one number from this range that is not in $A$. Design an $O(n)$-time
 algorithm for finding that number. You are allowed to use only $O(1)$ additional
 space besides the array $A$ itself.\\[12pt]
 }
-\def\problemSolution{
-\setcounter{myenumi}{\value{enumi}}
-\textcolor{blue}{
+\def\problemSolution{%
+{
+\color{blue}
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{algorithm}[H]
+    \caption{Algorithm notInArratRange ($A$):}
+    \begin{algorithmic}
+         \color{blue}
+        \Require Input: An array with $n-1$ unique integers in the range $[0,n-1]$, and a number not in that range
+        \Ensure Output: Number not in range $[0,n-1]$.
+
+        \State$rangeSum \gets 0$
+        \State$arraySum \gets 0$
+        \State$res \gets 0$
+
+        \State$rangeSum \gets n(n-1)/2$
+
+        \For{$i \gets 0$ to $n -1$} 
+            \State$arraySum \gets arraySum + A[i]$
+        \EndFor
+        \State$res \gets arraySum - rangeSum$
+        \State \Return$res$
+    \end{algorithmic}
+\end{algorithm}
 }
-\newpage
-\setcounter{enumi}{\value{myenumi}}
 }
 \gdef\problemOutcomes{CS 1, CS 2, 5870-1}

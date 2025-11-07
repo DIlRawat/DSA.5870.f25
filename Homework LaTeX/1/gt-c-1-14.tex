@@ -15,11 +15,59 @@ where $x$ is a real number and each $a_i$ is a constant.
 \end{list}
 \vskip12pt
 }
-\def\problemSolution{
-\textcolor{blue}{
+
+\def\problemSolution{*
+{
+\color{blue}
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{list}{\textbf{\alph{myenumi})}}{\usecounter{myenumi}\setcounter{myenumi}{0}}
+\item $O(n^2)$ Method:
+A brute force method is to compute each term $a_ix^i$ individually and sum them up. 
+The term $a_ix^i$ can be computed by multiplying $x$ by itself $i$ times. 
+Here we have nested loop structure.
+\par p(x) = $a_0x^0$ + $a_1x^1$ + ... + $a_nx^n$
+\begin{algorithm}[H]
+    \caption{Simple $O(n^2)$ Polynomial Evaluation}
+    \begin{algorithmic}
+         \color{blue}
+        \State $result \gets 0$
+        \For{$i \gets 0$ to $n$}
+            \State $termPower \gets 1$
+            \For{$j \gets 1$ to $i$}
+                \State $termPower \gets termPower \cdot x$
+            \EndFor
+            \State $termTotal \gets a_i \cdot termPower$
+            \State $result \gets result + termTotal$
+        \EndFor
+    \State \Return $result$
+    \end{algorithmic}
+\end{algorithm}
+
+\item Horner's Method ($O(n)$):
+Horner's method is a more efficient way to evaluate the polynomial. 
+It evaluates the nested form of the equation from the inside out.
+\textbf{(b) Horner’s method ($O(n)$):}
+\begin{algorithm}[H]
+    \caption{Horner's Method}
+    \begin{algorithmic}
+         \color{blue}
+        \State $result \gets a_n$
+        \For{$i \gets n-1$ downto $0$}
+            \State $result \gets a_i + x \cdot result$
+        \EndFor
+        \State \Return $result$
+    \end{algorithmic}
+\end{algorithm}
+
+We start with $result \gets a_n$ We iterate backwards, $i = n - 1$ to $0$:
+\par In every single iteration, we do: \newline
+    1 multiplication:  $x \cdot result$ \newline
+    1 addition:  $a_i + ...$
+
+\par That means we do $n$ multiplication and $n$ addition for $n$ degree polynomial. 
+\par Total work = n + n = 2n which we can say : O(n)
+
+ \end{list}
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 2, CS 6, 5870-1, 5870-2}

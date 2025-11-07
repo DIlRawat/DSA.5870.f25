@@ -29,8 +29,30 @@ $\qquad$ sum++;
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{enumerate}[a]
+    \item Outer loop: Runs $\lg N + 1$ times since we half $n$ each iteration. n = N, N/2, N/4,..1
+        \begin{itemize}
+            \item Inner Loop: Runs from 0 to n times. The value of n is updated in each outer loop iterations.
+            \item $ T(N) = N + \frac {N}{2} +  \frac {N}{4} +  \dots + 1$
+            \item $N(1 + \frac {1}{2} +  \frac {1}{4} + \dots + \frac {1}{N}) $
+            \item This is geometric series with ratio $r = \frac{1}{2}$
+            \item $N . (\frac {1}{2} +  \frac {1}{4} + \dots + \frac {1}{N}) \approx 2N$
+            \item Overall: $\Theta(2N) = \Theta(N)$
+        \end{itemize}
+    \item Outer loop: $\lg N$ since we double the index $i$ each iteration. $ i = 1 + 2 + 4 + 8... 2^k < N$
+        \begin{itemize}
+            \item Inner Loop: Runs from 0 to i times. The value of i is updated in each outer loop iterations.
+            \item $T(N) = 1 + 2 + 4 + 8 + \dots + 2^k$
+            \item This is geometric series with a ration $ r = 2$
+            \item $2. (\frac{N}{2}) - 1 = N - 1 $
+            \item Overall: $\Theta(N)$
+        \end{itemize}
+    \item Outer loop: $\lg N$ since we double the index $i$ each iteration. $ i = 1 + 2 + 4 + 8... 2^k < N$
+        \begin{itemize}
+            \item Inner Loop: Runs from 0 to N = N times independent of outer loop. 
+            \item Overall: $ lg N . N = \Theta(N lgN)$
+        \end{itemize}
+\end{enumerate}
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 1, CS 6, 5870-1}

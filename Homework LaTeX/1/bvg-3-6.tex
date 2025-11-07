@@ -36,8 +36,24 @@ terms of $d$\/? How do you show that two sets are equal?\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+Given preconditions: $m \ge 0, n \ge 0 $ and $m + n > 0 $
+\begin{list}{\textbf{\alph{enumii}.}}{\usecounter{enumii}}
+\item Base case: $m > 0 $ and $n = 0$ . $GCD(m,0) \gets m : line 2$. We can say that m is the common divisor since we can divide m and 0 by m. 
+	If (m,n)  = GCD(1,0), then it returns m = 1 which divides both 0 and 1
+\item Base case: $m = 0 $ and $n > 0$ . $GCD(0,n) \gets GCD(n,0)$ since $m < n$ : line 4. 
+	We can say that n is the common divisor since we can divide 0 and n by n. If (m,n)  = GCD(0,1), 
+	since $m < n$ so we call GCD(1,0) then it returns 1 which divides both 0 and 1
+\item Therefore, the returned value is common divisor in above cases.
+\end{list}
+Let s = m + n for a pair (m,n).
+Now assume the claim holds for every pair (x,y) with $x + y < s$.
+\begin{list}{\textbf{\alph{enumii}.}}{\usecounter{enumii}}
+	\item Case: $m < n$ calls GCD(n,m) which reduces the 
+	\item Case $m \ge n > 0$. We call GCD(n,r), where $r = m - n . \lfloor \frac{m}{n} \rfloor$. 
+		The remainder r is: $  0 \le r < n$. Then $n + r \le m + n = s$. 
+		Let's say value returned from GCD(n,r) = d which divides both n and r. This means $d\mid n$ and $d\mid r$
+\end{list}
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 1, CS 6, 5870-1}
+

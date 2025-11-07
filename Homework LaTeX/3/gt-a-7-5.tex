@@ -11,7 +11,10 @@ of your method over the course of a game consisting of $n$ moves?\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+One way to find a bonus points would be: after finding a winner, we can loop through the gold cells and check Find(goldCells) in the winning set. \\[6pt]
+This will add $O(k)$ additional run time on top of $O(n)$ time for finding winner. In total: $O(n + k)$. \\[6pt]
+Another apporach I can think of is: When a player places a stone on the board, we can keep count of gold cells. And when a winner is found we can use the count to give bonus points. \\[6pt]
+This will add more Find() operations. However, the total runtime should still be linear: $O(n)$. \\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

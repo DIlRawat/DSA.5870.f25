@@ -8,7 +8,17 @@ starting with $n$ singleton sets, is $O(m)$, if $m\ge n\lg n$.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
-}
+Theorem 7.6: In a sequence $\alpha$ of m union and find operations performed using
+union by size andpath compression, starting with a collection of n single element
+sets, the total time to perform the operations in $\alpha$ is $O((n + m)\alpha(n))$. 
+\\[6pt]
+In the question we are given:  \[m \ge n lgn\]
+\[n \le \frac{m}{logn}\]  \\[6pt]
+Subsutite in Theorem 7.6 : $T(n,m) = O((n + m)\alpha(n))$ \\[6pt]
+\[= O((\frac{m}{logn} + m)\alpha(n))\]\\
+\[= O(m(\frac{1}{logn} + 1)\alpha(n))\]\\
+\[= O(m(1)(1))\]\\
+\[= O(m) \] if $m\ge n\lg n$ \\
+}\\[6pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

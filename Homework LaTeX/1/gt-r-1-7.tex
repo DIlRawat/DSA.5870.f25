@@ -17,12 +17,29 @@ $\log f(n)$ and $\log g(n)$ or $2^{f(n)}$ and $2^{g(n)}$.\\[12pt]
 \setcounter{enumi}{\value{myenumi}}
 }
 \def\problemSolution{
-\setcounter{myenumi}{\value{enumi}}
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{enumerate} 
+    \item $1/n$ 
+    \item $2^{100}$ : $\Theta(1)$ 
+    \item $\log\log n$ : $\Theta(\log\log n)$
+    \item $\sqrt{\log n}$ : $\Theta(\log n)$
+    \item $\log^2n$ : $\Theta(\log n)$
+    \item $n^{0.01}$ : $\Theta(n^{0.01})$ 
+    \item $\lceil\sqrt n\rceil$, $3n^{0.5}$ : $\Theta(n^{1/2})$
+    \item $5n$ : $\Theta(n)$
+    \item $2^{\log n}$ : $\Theta(n)$ 
+    \item $6n\lg n$, $n\log_4n$ : $\Theta(n\log n)$ 
+    \item $\lfloor2n\log^2n\rfloor$ : $\Theta(n\log^2n)$
+    \item $4n^{3/2}$ : $\Theta(n^{3/2})$ 
+    \item $4^{\log n}$ : $\Theta(n^2)$ 
+    \item $n^2\log n$ : $\Theta(n^2\log n)$ 
+    \item $n^3$ : $\Theta(n^3)$ 
+    \item $2^n$ : $\Theta(2^n)$ 
+    \item $2^{2^n}$, $4^n$ : $\Theta(4^n)$ 
+\end{enumerate}
 }
-\newpage
-\setcounter{enumi}{\value{myenumi}}
+
 }
 \gdef\problemOutcomes{CS 6, 5870-1}
+

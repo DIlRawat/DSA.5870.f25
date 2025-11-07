@@ -6,10 +6,26 @@ greater than the difference of any other pair (in absolute value). The running
 time of your algorithm must be log-linear in the worst case.\\[12pt]
 }
 \def\problemSolution{
-\textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
-}
-\newpage
+\begin{algorithm}[H]
+    \caption{One-dimensional closest pair}
+    \begin{algorithmic}
+        \color{blue}
+        \Require An array A with N numbers
+        \Ensure Closest Pair (value1, value2)
+        \State Array A is sorted in ascending order
+        \State $value1 \gets A[$0$]$
+        \State $value2 \gets A[$1$]$
+        \State $diff \gets |value2 - value1|$
+
+        \For {$i \gets 1$ to $n - 2$}
+            \If {$|A[i+1] - A[i]| < diff$}
+                \State $value1 \gets A[i]$
+                \State $value1 \gets A[i+1]$
+            \EndIf
+        \EndFor
+        \State \Return $value1$, $value2$
+    \end{algorithmic}
+\end{algorithm}
 }
 \gdef\problemOutcomes{CS 2, 5870-1}

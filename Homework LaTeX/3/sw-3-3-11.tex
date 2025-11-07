@@ -1,12 +1,64 @@
 \gdef\problemNumber{SW 3.3.11}
 \def\problemText{
 Draw the \emph{left leaning} red-black BST that results when you insert items with the keys
-\ttbf{Y L P M X H C R A E S} in that order into an initially empty tree.\\[12pt]
+\textbf{Y L P M X H C R A E S} in that order into an initially empty tree.\\[12pt]
 }
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
-}
+  \tikzset{%
+    /forest,
+    forest node/.style={circle, inner sep=0pt, text centered},
+    arn n/.append style={text=white, font=\sffamily\bfseries, draw=black, fill=black, text width=1.5em},
+    arn r/.append style={text=red, draw=red, text width=1.5em, very thick},
+    null/.style = {draw=black,fill=black,minimum width=8pt,minimum height=8pt,inner sep=0pt,shape=rectangle}
+  }
+  \begin{forest}
+    for tree={%
+      font=\sffamily,
+      forest node,
+      edge path={
+        \noexpand\path[color=black, -stealth', \forestoption{edge}]
+          (!u.parent anchor) -- (.child anchor)\forestoption{edge label};
+      },
+      l sep+=.25cm,
+      s sep+=.25cm,
+    }
+      [P, arn n
+        [L, arn n
+          [C, arn r
+            [A, arn n
+                [, null]
+                [, null]
+            ]
+            [H, arn n
+                [E, arn r
+                    [, null]
+                    [, null]
+                ]
+                [, null]
+            ]
+          ]
+          [M, arn n
+            [, null]
+            [, null]
+          ]
+        ]
+        [X, arn n
+          [S, arn n
+            [R, arn r
+                [, null]
+                [, null]
+            ]
+            [, null]
+          ]
+          [Y, arn n
+            [, null]
+            [, null]
+          ]
+        ]
+      ]
+  \end{forest}
+}\\[6pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

@@ -9,8 +9,23 @@ you can do exactly $\lfloor\frac{3N}{2}-\frac{3}{2}\rfloor$ comparisons.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{algorithm}[H]
+    \caption{One-dimensional Farthest pair}
+    \begin{algorithmic}
+        \color{blue}
+    \State $minVal \gets A[0]$
+    \State $maxVal \gets A[0]$
+    \For {$i \gets 1$ to $n - 1$}
+        \If {$A[i] < minVal$}
+            \State $minVal \gets A[i]$
+        \EndIf
+        \If {$A[i] > maxVal$}
+            \State $maxVal \gets A[i]$
+        \EndIf
+    \EndFor
+    \State \Return {$minVal, maxVal$}
+    \end{algorithmic}
+\end{algorithm}
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 2, 5870-1, 5870-2}

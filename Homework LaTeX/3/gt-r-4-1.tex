@@ -7,7 +7,27 @@ that results.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
-}
+\begin{tikzpicture}
+[
+    level 1/.style={sibling distance=25mm},
+    level 2/.style={sibling distance=15mm},
+]
+	\node {30}
+		child {
+            node {24}
+            child {
+                node {11}
+                    child {node {}}
+                    child {node {13}}
+                }
+            child {node {26}}
+        }
+		child {
+		    node {48}
+		    child {node {40}}
+		    child {node {58}}
+		};
+\end{tikzpicture}
+}\\[12pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

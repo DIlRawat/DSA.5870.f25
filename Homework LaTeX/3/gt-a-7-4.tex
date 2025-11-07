@@ -15,7 +15,25 @@ white has just won a game of Hex.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+We will have four nodes for: Top, Bottom, Left and Right sides. \\[6pt]
+A node for each cell in the grid. \\[6pt]
+Black Player's goal: Connect Top and Bottom\\[6pt]
+White Player's goal: Connect Left and Right\\[6pt]
+\\[6pt]
+If the black stone is placed on Top or Bottom nodes we do:\\[6pt]
+    Union(stone, Top) or Union(stone, Bottom)\\[6pt]
+    Plus check if the neighbor has black stone.\\[6pt]
+    If so, we do the Union with the neighbor. \\[6pt]
+If black stone is placed anywhere else, we check if it has black neighbor. \\[6pt]
+If so we do Union with neighbor.\\[6pt]
+\\[6pt]
+We do same steps for the White. \\[6pt]
+\\[6pt]
+To find the winner:\\[6pt]
+We check if Top and Bottom are in same set everytime black stone is placed. Find(Top) = Find(Bottom). \\[6pt]
+If so Black wins. This means top and bottom are connected with same color stones\\[6pt]
+We check if Left and Right are in same set everytime white stone is placed. Find(Left) = Find(Right).\\[6pt]
+If so White wins. This means left and right are connected with same color stones.\\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

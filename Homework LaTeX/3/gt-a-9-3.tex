@@ -14,7 +14,54 @@ post office, show that your algorithm is correct, and analyze its running time.
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+I am using Quick Select Algorithm to find the median and place the lamp post there.\\[6pt]
+\begin{algorithm}
+    \caption{quickSelect(S, m)}
+    \begin{algorithmic}[1]
+        \Require Input: S as Set of n real numbers that corresponds a house on a line(street) , and an integer $m = \lceil n/2 \rceil$.
+        \Ensure Output: Location p for the new post office that minimize the sum distance from each house to the post office p. 
+        \If {$n = 1$}
+            \State return first element of S as the location for a new post office.
+        \EndIf
+        \State pick a random element x of S
+        \State remove all the emelents from S and put them into 3 sequences:
+        \begin{itemize}
+            \item L, storing the elements in S less than x.
+            \item E, storing the elements in S sequal to x.
+            \item G, storing the elements in S greater than x.
+        \end{itemize}
+        \If {$m \le |L|$}
+            \State quickSelect({$L, m$})
+        \ElsIf {$m \le |L| + |E|$}
+            \State return $x$
+        \Else
+            \State quickSelect({$G, m - |L| - |E|$})
+        \EndIf
+    \end{algorithmic}
+\end{algorithm}
+\\[6pt] We place the post across the street when there is only one house. If two houses we can put the post
+in between houses. The sum of the distance to post office from those two houses is minimum if we put
+the post office in between those two houses. \\[6pt]
+If we got more than two houses, we find the median and keep going until we are left with one or two houses\\[6pt]
+\\[6pt] Analysis: It depends on selected pivot. We are selecting it randomly in the above algorithm\\[6pt]
+Worst Case: If the pivot is the smallest or largest item in the Sequence S with n elements.\\[6pt]
+This means either: \\[6pt]
+$L = 0$, $|G| = n - 1$ or $L = n - 1$, $|G| = 0$ \\[6pt]
+Since this involves recusion, we will need a recurrence equation:\\[6pt]
+$T(n)$ = Time to partition (L, E, R) + T(Size of Subproblem)\\[6pt]
+$ T(n) = O(n) + T(p)$, where p is the partion \\[6pt]
+$ T(n) = T(n - 1) + O(n)$
+We can use subsutition to solve this recurrence equation which will give us: \\[6pt]
+$T(n) = 1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2}$ \\[6pt]
+This equates to: $T(n) = O(n^2)$
+\\[12pt]
+Average Case: In this case the pivot partition the sequence S at most 3n/4 \\[6pt]
+$T(n) = T(\frac{3n}{4}) + O(n)$ \\[6pt]
+We can use master theorem to solve this: \\[6pt]
+$a = 1, b = 4/3, log_ba = 1, f(n) = O(n)$ \\[6pt]
+As per Case 3: $O(n)$ \\[6pt]
+Therefore on average, the quick select algorithm runs on linear time. 
 }
+\\[6pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

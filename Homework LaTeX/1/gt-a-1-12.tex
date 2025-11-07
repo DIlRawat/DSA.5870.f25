@@ -8,8 +8,28 @@ space used by $A$.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+\begin{algorithm}[H]
+    \caption{Array A of size n - 2 (with elements from 1 to n, missing two numbers)}
+    \begin{algorithmic}
+        \color{blue}
+    \State $totalSum \gets \frac{n(n+1)}{2}$
+    \State $totalSumSq \gets \frac{n(n+1)(2n+1)}{6}$
+    \State $arraySum \gets 0$
+    \State $arraySumSq \gets 0$
+    \For {$i \gets 0$ to $n-3$}
+        \State $arraySum \gets arraySum + A[i]$
+        \State $arraySumSq \gets arraySumSq + A[i]^2$
+    \EndFor
+    \State $sumDiff \gets totalSum - arraySum$ \Comment{$x + y$}
+    \State $sumSqDiff \gets totalSumSq - arraySumSq$ \Comment{$x^2 + y^2$}
+    \State $product \gets \frac{sumDiff^2 - sumSqDiff}{2}$ \Comment{$xy$}
+    \Comment{Solve quadratic: $t^2 - sumDiff \cdot t + product = 0$}
+    \State $d \gets sumDiff^2 - 4 \cdot product$
+    \State $x \gets \frac{sumDiff + \sqrt{d}}{2}$
+    \State $y \gets \frac{sumDiff - \sqrt{d}}{2}$
+    \State \Return $(x, y)$ 
+    \end{algorithmic}
+\end{algorithm}
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 1, CS 2, 5870-1}

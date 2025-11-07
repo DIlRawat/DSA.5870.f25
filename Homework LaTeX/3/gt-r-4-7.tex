@@ -5,7 +5,73 @@ What is the minimum number of nodes in a red-black tree of height $8$?\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
-}
+ \tikzset{%
+    /forest,
+    forest node/.style={circle, inner sep=0pt, text centered},
+    arn n/.append style={text=white, font=\sffamily\bfseries, draw=black, fill=black, text width=1.5em},
+    arn r/.append style={text=red, draw=red, text width=1.5em, very thick},
+    null/.style = {draw=black,fill=black,minimum width=8pt,minimum height=8pt,inner sep=0pt,shape=rectangle}
+  }
+  \begin{forest}
+    for tree={%
+      font=\sffamily,
+      forest node,
+      edge path={
+        \noexpand\path[color=black, -stealth', \forestoption{edge}]
+          (!u.parent anchor) -- (.child anchor)\forestoption{edge label};
+      },
+      l sep+=.25cm,
+      s sep+=.25cm,
+    }
+      [0, arn n
+        [0, arn r
+          [0, arn n
+            [0, arn r
+                [0, arn n
+                    [0, arn r
+                        [0, arn n
+                        [0, arn r]
+                        [, null]
+                    ]
+                    [0, arn n]
+                ]
+                [0, arn n]
+            ]
+            [0, arn n
+              [0, arn n]
+              [0, arn n]
+            ]
+            ]
+            [0, arn n
+              [0, arn n]
+              [0, arn n]
+          ]
+          ]
+          [0, arn n
+            [0, arn n
+            [0, arn n]
+            [0, arn n]
+          ]
+          [0, arn n
+            [0, arn n]
+            [0, arn n]
+          ]
+          ]
+        ]
+        [0, arn n
+          [0, arn n
+            [0, arn n]
+            [0, arn n]
+          ]
+          [0, arn n
+            [0, arn n]
+            [0, arn n]
+          ]
+        ]
+      ]
+  \end{forest}
+  \\[6pt] Min nodes: 30\\[6pt]
+  Here we have a black node count of 4 when we visit every possible path. We don't have two reds. \\[6pt]
+}\\[6pt]
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

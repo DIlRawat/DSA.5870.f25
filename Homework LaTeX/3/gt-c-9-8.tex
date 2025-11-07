@@ -7,7 +7,16 @@ on an $n$-element sequence.\\[12pt]
 \def\problemSolution{
 \textcolor{blue}{
 \textbf{Answer:}\\[6pt]
-Answer goes here
+DeterministicSelect Algo: \\[6pt]
+Divides the n items into a group of 5 items and finds their median. \\[6pt]
+Finds a median(pivot) of medians, that almost divides the n-element sequence into half. \\[6pt]
+i.e : $L = n/2$ and $G = n/2.$ L has items less than pivot and G has greater ones. \\[6pt]
+We recursively run the DeterministicSelect in L and G until we hit base case of n = 1.\\[6pt]
+Then sorted items are concatenated together after the end of each recursive call giving us a sorted n-element sequece.\\[6pt]
+At each level we go throught the element and put them into 3 sequences: L,E, and G. This takes O(n).\\[6pt]
+Recurrence equation : $T(n) = 2T(n/2) + O(n)$\\[6pt]
+where, $a = 2, b = 2, f(n) = O(n), log_ba = 1$\\[6pt]
+So, as per rule 2 of MT: $O(n logn)$\\[6pt]
 }
 }
 \gdef\problemOutcomes{CS 6, 5870-1}

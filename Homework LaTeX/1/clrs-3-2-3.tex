@@ -1,15 +1,50 @@
 \gdef\problemNumber{CLRS 3.2-3}
 \def\problemText{
 Prove that $\lg\left(n!\right)\in\Theta\left(n\lg n\right)$. Also prove that
-$n!\in\omega\left(2^n\right)$ and $n!\in o\left(n^n\right)$.\parend
+$n!\in\omega\left(2^n\right)$ and $n!\in o\left(n^n\right)$.
 \emph{Hint}\/: Use Stirling's approximation: $n!=\sqrt{2\pi n}\left(\frac{n}{e}
 \right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right)$\\[12pt]
 }
 \def\problemSolution{
 \textcolor{blue}{
-\textbf{Answer:}\\[6pt]
-Answer goes here
+\textbf{Answer: a}\\[6pt]
+Given: $n!=\sqrt{2\pi n}\left(\frac{n}{e}
+\right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right)$\\[12pt]
+Taking the log: $lg(n!)= lg(\sqrt{2\pi n}\left(\frac{n}{e}
+\right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right))$\\[12pt]
+$lg(n!)= \frac{1}{2}lg(2\pi n) + nlg (\frac{n}{e}) + 
+lg(1+\Theta\left(\frac{1}{n}\right))$\\[12pt]
+$lg(n!)= \frac{1}{2}lg(2\pi n) + nlg(n) - nlg(e) + 
+lg(1+\Theta\left(\frac{1}{n}\right))$\\[12pt]
+Analyze as $n_{n\to\infty}$\\[12pt]
+Taking the limit: $lim_{n\to\infty} \frac{lg(n)!}{nlgn} 
+= lim_{n\to\infty} \frac{\frac{1}{2}lg(2\pi n) + nlg(n) - nlg(e) + 
+lg(1+\Theta\left(\frac{1}{n}\right))}{nlgn}$\\[12pt]
+$lim_{n\to\infty} \frac{\frac{1}{2}lg(2\pi n)}{nlgn} + \frac{nlgn}{nlgn} - \frac{nlg(e)}{nlgn}
+ + \frac{lg(1+\Theta\left(\frac{1}{n}\right))}{nlgn}$\\[12pt]
+$lim_{n\to\infty} 0 + 1 - 0 + 0$ | $[\frac{lg(1+\Theta\left(\frac{1}{n}\right))}{nlgn}]$: $\frac{lg(1)}{nlgn} : 0$\\[12pt]
+As ${n\to\infty}: \frac{lg(2\pi n )}{nlgn}$, and $\frac{nlg(e)}{nlgn}$ approaches to $0$\\[12pt]
+Therefore, limit : $0 + 1 - 0 = 1$ \\[12pt]
+With positive limit we can say that $\lg\left(n!\right)\in\Theta\left(n\lg n\right)$ \\[12pt]
+\textbf{Answer: b}\\[6pt]
+Prove $n!\in\omega\left(2^n\right)$ \\[12pt]
+$lim_{n\to\infty} \frac{2^n}{n!} = lim_{n\to\infty} \frac{2^n}{\sqrt{2\pi n}\left(\frac{n}{e}
+\right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right)}$\\[12pt]
+$lim_{n\to\infty} \frac{1}{\sqrt{2\pi n}} . \frac{2^n}{\left(\frac{n}{e}\right)^n} . \frac{1}{\left(1+\Theta\left(\frac{1}{n}\right)\right)}$ \\[12pt]
+$lim_{n\to\infty} \frac{1}{\sqrt{2\pi n}} . \left(\frac{2e}{n}\right)^n . \frac{1}{\left(1+\Theta\left(\frac{1}{n}\right)\right)}$ \\[12pt]
+As ${n\to\infty}$ these terms: $\frac{2e}{n}, \frac{1}{\sqrt{2\pi n}}, \frac{1}{\left(1+\Theta\left(\frac{1}{n}\right)\right)} $ approach to $0$ \\[12pt]
+Therefore: $lim_{n\to\infty} \frac{2^n}{n!} = 0$ . Hence, $n!\in\omega\left(2^n\right)$ \\[12pt]
+\textbf{Answer: c}\\[6pt]
+Prove $n!\in o\left(n^n\right)$ \\[12pt]
+$lim_{n\to\infty} \frac{n!}{n^n}$ = $lim_{n\to\infty} \frac{\sqrt{2\pi n}\left(\frac{n}{e}
+\right)^n\left(1+\Theta\left(\frac{1}{n}\right)\right)}{n^n}$ \\[12pt]
+$lim_{n\to\infty} \frac{\sqrt{2\pi n}.n^n\left(1+\Theta\left(\frac{1}{n}\right)\right)}{n^n.e^n}$ \\[12pt]
+$lim_{n\to\infty} \frac{\sqrt{2\pi n}\left(1+\Theta\left(\frac{1}{n}\right)\right)}{e^n}$ \\[12pt]
+$lim_{n\to\infty} \sqrt{2\pi n}\left(1+\Theta\left(\frac{1}{n}\right)\right) . \frac{1}{e^n}$ \\[12pt]
+Therefore, as ${n\to\infty}:$ the $e^n$ grows much faster than $\sqrt {n}.$\\[12pt]
+Denominator grows faster than the numerator. Hence, limit is $0$ \\[12pt]
+So that: $n!\in o\left(n^n\right)$ \\[12pt]
 }
-\newpage
 }
 \gdef\problemOutcomes{CS 6, 5870-1}
+
